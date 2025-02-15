@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tienda de Bolsos</title>
-        <link rel="stylesheet" href="../CSS/styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>Tienda de Bolsos</h1>
-            <nav>
-                <ul>
-                    <li><a href="../HTML/index.html">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Carrito</a></li>
-                </ul>
-            </nav>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Bolsos</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda de Bolsos</h1>
+        <nav>
+            <ul>
+                <li><a href="../HTML/index.html">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main>
-            <section id="productos">  
-                <h2>Lista de Productos</h2>
-                <div class="producto">
-                    <img src="../Imagenes/Bolso1.jpg" alt="Bolso 1">
-                    <h3>Bolso Elegante</h3>
-                    <p>$300.000</p>
-                    <button>Añadir al carrito</button>
-                </div>          
-            </section>
-            <aside id="carrito">
-                <h2>Carrito de Compras</h2>
-                <p>Tu carrito esta vacio</p>
-            </aside>
-        </main>
+    <main>
+        <section id="productos">
+            <h2>Lista de Productos</h2>  
 
-        <footer>
-            <p> &copy; 2025 Tienda de Bolsos</p>
-        </footer>
-    </body>
+            <div class="producto">  
+                <img src="../Imagenes/Bolso1.jpg" alt="Bolso 1">
+                <h3>Bolso Elegante</h3>
+                <p class="precio">$500.000</p>
+                <button>Añadir al carrito</button>
+            </div>  
 
+            <div class="producto">
+                <img src="../Imagenes/Bolso2.jpg" alt="Bolso 2">
+                <h3>Bolso de cuero</h3>
+                <p class="precio">$250.000</p>
+                <button>Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../Imagenes/Bolso3.jpg" alt="Bolso 3">
+                <h3>Bolso azul</h3>
+                <p class="precio">$200.000</p>
+                <button>Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../Imagenes/Bolso4.jpg" alt="Bolso 4">
+                <h3>Bolso rojo</h3>
+                <p class="precio">$150.000</p>
+                <button>Añadir al carrito</button>
+            </div>
+
+            <div class="producto">
+                <img src="../Imagenes/Bolso5.jpg" alt="Bolso 5">
+                <h3>Bolsos en promoción</h3>
+                <p class="precio">$189.999</p>
+                <button>Añadir al carrito</button>
+            </div>
+        </section>
+
+        <aside id="carrito">
+            <h2>Carrito de Compras</h2>
+            <p>Tu carrito está vacío</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tienda de Bolsos</p>
+    </footer>
+</body>
 </html>

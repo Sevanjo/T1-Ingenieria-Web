@@ -1,0 +1,75 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5 ;
+    color: #333;
+}
+header {
+    background-color:#333;
+    color:white;
+    padding: 20px;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+button{
+    background-color:bisque;
+    color:#333;
+}
+footer {
+    color:#333;
+    display:flex;
+    justify-content:center;
+}
+#productos {
+    display: grid;
+    grid-template-columns: 1fr;  /* Una sola columna al inicio */
+    text-align: center;
+    gap: 20px;
+    width: 70%;
+}
+#productos .producto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.producto img {
+    width:100px;
+    height: auto;
+}
+#carrito {
+    background-color:white;
+    padding:  10px;
+    margin: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*Cascada*/
+/*  Para pantallas menores a 768px (Tablets y Móviles)  */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Elementos apilados en lugar de en fila */
+    }
+
+    #productos {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    #carrito {
+        width: 100%; /* El carrito también ocupa todo el ancho */
+        margin-top: 20px;
+    }
+}
