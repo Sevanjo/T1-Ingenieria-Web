@@ -24,6 +24,11 @@ nav ul li a {
     color: white;
     text-decoration: none;
 }
+footer {
+    color:#333;
+    display:flex;
+    justify-content:center;
+}
 #productos {
     display:flex;
     flex-wrap:wrap;
