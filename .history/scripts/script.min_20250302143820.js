@@ -1,0 +1,4 @@
+document.addEventListener("DOMContentLoaded",()=>{let e=document.querySelectorAll(".producto button"),t=document.querySelector("#carrito"),r=[];function n(){let e=document.querySelector("#carrito .contenido");if(e)e.innerHTML="";else{let o=document.createElement("div");o.classList.add("contenido"),t.appendChild(o)}0===r.length?e.innerHTML="<p>Tu carrito est\xe1 vac\xedo</p>":(r.forEach((t,r)=>{let n=document.createElement("div");n.classList.add("producto-carrito"),n.innerHTML=`
+    <p>${t.nombre} - ${t.precio}</p>
+    <button class="eliminar" data-index="${r}">X</button>
+`,e.appendChild(n)}),document.querySelectorAll(".eliminar").forEach(e=>{e.addEventListener("click",e=>{let t=e.target.getAttribute("data-index");r.splice(t,1),n()})}))}e.forEach(e=>{e.addEventListener("click",e=>{let t=e.target.parentElement,o=t.querySelector("h3").textContent,i=t.querySelector(".precio").textContent;r.push({nombre:o,precio:i}),n()})})});
