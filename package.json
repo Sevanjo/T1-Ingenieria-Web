@@ -1,0 +1,26 @@
+{
+  "name": "t1-pagina-web",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sevanjo/T1-Ingenieria-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sevanjo/T1-Ingenieria-Web/issues"
+  },
+  "homepage": "https://github.com/Sevanjo/T1-Ingenieria-Web#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
+  }
+}
