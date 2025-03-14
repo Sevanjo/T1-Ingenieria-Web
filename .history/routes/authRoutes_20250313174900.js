@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { Usuario } = require('../models/Usuario'); 
-const jwt = require('jsonwebtoken'); 
+const { Usuario } = require('../models/Usuario'); // Importamos el modelo de la BD
+const jwt = require('jsonwebtoken'); // Importa JWT para autenticación
 
 const router = express.Router();
 
