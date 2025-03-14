@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const productosContainer = document.querySelector("#productos");
     const carritoContainer = document.querySelector("#carrito");
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = [];
 
     // Función para actualizar el carrito en el DOM
     function actualizarCarrito() {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let div = document.createElement("div");
                 div.classList.add("producto-carrito");
                 div.innerHTML = `
-                    <p>${producto.nombre} - $${producto.precio.toFixed(2)}</p>
+                    <p>${producto.nombre} - ${producto.precio}</p>
                     <button class="eliminar" data-index="${index}">X</button>
                 `;
                 contenido.appendChild(div);
@@ -32,16 +32,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 btn.addEventListener("click", (e) => {
                     let index = e.target.getAttribute("data-index");
                     carrito.splice(index, 1);
-                    guardarCarrito();
+                    actualizarCarrito();
                 });
             });
         }
-    }
-
-    // Función para guardar el carrito en localStorage
-    function guardarCarrito() {
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        actualizarCarrito();
     }
 
     // Cargar productos desde la API
@@ -67,9 +61,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             btn.addEventListener("click", (e) => {
                 let productoElemento = e.target.parentElement;
                 let nombre = productoElemento.querySelector("h3").textContent;
-                let precio = parseFloat(productoElemento.querySelector(".precio").textContent.replace("$", ""));
+                let precio = productoElemento.querySelector(".precio").textContent;
                 carrito.push({ nombre, precio });
-                guardarCarrito();
+                actualizarCarrito();
             });
         });
 
@@ -77,42 +71,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("❌ Error al obtener productos:", error);
     }
 
-    // Botón para vaciar el carrito
-    const vaciarCarritoBtn = document.createElement("button");
-    vaciarCarritoBtn.textContent = "Vaciar carrito";
-    vaciarCarritoBtn.addEventListener("click", () => {
-        carrito = [];
-        localStorage.removeItem("carrito");
-        actualizarCarrito();
-    });
-    carritoContainer.appendChild(vaciarCarritoBtn);
-
-    // Ejecutar pruebas
+    // Pruebas de funcionalidad
     function testAgregarProducto() {
         carrito = [];
-        carrito.push({ nombre: "Mochila", precio: 20 });
+        carrito.push({ nombre: "Mochila", precio: "$20" });
         console.assert(carrito.length === 1, "❌ Error: No se agregó el producto al carrito");
         console.assert(carrito[0].nombre === "Mochila", "❌ Error: Nombre del producto incorrecto");
-        console.assert(carrito[0].precio === 20, "❌ Error: Precio del producto incorrecto");
+        console.assert(carrito[0].precio === "$20", "❌ Error: Precio del producto incorrecto");
         console.log("✅ Prueba testAgregarProducto pasada");
     }
 
     function testEliminarProducto() {
-        carrito = [{ nombre: "Bolso", precio: 30 }];
+        carrito = [{ nombre: "Bolso", precio: "$30" }];
         carrito.splice(0, 1);
         console.assert(carrito.length === 0, "❌ Error: No se eliminó el producto del carrito");
         console.log("✅ Prueba testEliminarProducto pasada");
     }
 
     function testVaciarCarrito() {
-        carrito = [{ nombre: "Zapato", precio: 50 }, { nombre: "Reloj", precio: 100 }];
+        carrito = [{ nombre: "Zapato", precio: "$50" }, { nombre: "Reloj", precio: "$100" }];
         carrito = [];
         console.assert(carrito.length === 0, "❌ Error: No se vació el carrito correctamente");
         console.log("✅ Prueba testVaciarCarrito pasada");
     }
-
-    // Cargar carrito almacenado en localStorage
-    actualizarCarrito();
 
     // Ejecutar pruebas
     testAgregarProducto();
